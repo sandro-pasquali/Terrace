@@ -1,6 +1,6 @@
 # The Terrace Framework
 
-New Age Javascript for Application Developers
+New Age Javascript for Application Developers [no longer supported]
  
 ## Features
 
