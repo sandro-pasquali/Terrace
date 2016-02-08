@@ -19,6 +19,7 @@ New Age Javascript for Application Developers
 ```
 npm install
 make
+node server
 ```
 
 Then visit `localhost:2113`
