@@ -17,29 +17,8 @@ New Age Javascript for Application Developers
 ## Nodejs Installation
 
 ```
-npm install terrace
+npm install
+make
 ```
 
-## Binding browser environment to Nodejs server
-
-```
-<script type="text/javascript" src="terrace"></script>
-```
-
-## Using `terrace` as a stand-alone Javascript framework, anywhere
-
-```
-<script type="text/javascript" src="path/to/terrace.js"></script>
-```
-
-## Using `terrace` browser UI environment
-
-```
-[Include `terrace` using either method above...]
-
-<script type="text/javascript">
-    
-    Terrace.require("bits");
-
-</script>
-```
+Then visit `localhost:2113`
