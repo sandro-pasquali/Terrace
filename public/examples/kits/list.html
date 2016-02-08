@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript" src="../../terrace.js"></script>
+	<script type="text/javascript">
+
+    Terrace.require("list", function() {
+        var L = Terrace.list;
+
+        L.$first("pages", "a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z");
+        console.log(L.$range("pages", 0))
+
+        L.paginate("pages", 6);
+
+        console.log("-1: " + L.$page("pages", -1))
+        console.log("-2: " + L.$page("pages", -2))
+        console.log("-3: " + L.$page("pages", -3))
+        console.log("-4: " + L.$page("pages", -4))
+        console.log("-5: " + L.$page("pages", -5))
+        console.log("-6: " + L.$page("pages", -6))
+
+        console.log("\n");
+
+        console.log("1: " + L.$page("pages", 1))
+        console.log("2: " + L.$page("pages", 2))
+        console.log("3: " + L.$page("pages", 3))
+        console.log("4: " + L.$page("pages", 4))
+        console.log("5: " + L.$page("pages", 5))
+        console.log("6: " + L.$page("pages", 6))
+
+        var iterator = L.$iterator("pages");
+        console.log(iterator.prev());
+        console.log(iterator.next());
+        console.log(iterator.next());
+        console.log(iterator.next());
+        console.log(iterator.prev());
+        console.log(iterator.prev());
+        console.log(iterator.prev());
+        console.log("------");
+        console.log(iterator.prev(1));
+        console.log(iterator.next(1));
+        console.log(iterator.next(1));
+        console.log(iterator.next(1));
+        console.log(iterator.prev(1));
+        console.log(iterator.prev(1));
+        console.log(iterator.prev(1));
+
+        L.$last("sandro", 4, 4, 1, 2, 3, 4, 4, 4, "a", {foo: "BAR"}, [88,99,1010])
+        L.$remove("sandro", -2, 4);
+        L.$remove("sandro", 2, 4);
+        L.$remove("sandro", 0, 4);
+
+        console.log("\n> shuffle");
+        console.log(L.$shuffle("sandro"));
+
+        console.log("\n> unique");
+        console.log(L.$unique(["a","b","c","a","d","e","d","d","f","a","g","g","a"]));
+
+        console.log("> indexOf");
+        console.log(L.$indexOf(["eeny","meeny","miney","moe"], "miney", 2));
+
+        console.log("> lastIndexOf");
+        console.log(L.$lastIndexOf("pages", "z"));
+
+        console.log("> map");
+        console.log(L.$map([1,2,3,4,5], function(e) {
+            return e += 1;
+        }));
+
+        console.log(L.$map("pages", function(e) {
+            return e += 1;
+        }));
+
+        console.log("> every");
+        console.log(L.$every([1,1,1,1,1,1,1], function(e) {
+            return e === 1;
+        }));
+
+        console.log("> max");
+        console.log(L.$max([1,2,3,5,4]));
+        console.log(L.$max([1,2,3,5,4], function(e, i, targ, acc) {
+            return 3;
+        }));
+        console.log(L.$max(["one", "two", "three", "four", "foo", "bar"], function(e, i, targ, acc) {
+            return e > acc ? e : acc;
+        }));
+
+        console.log("> min");
+        console.log(L.$min([1,2,3,5,4]));
+        console.log(L.$min([1,2,3,5,4], function(e, i, targ, acc) {
+            return 3;
+        }));
+        console.log(L.$min(["one", "two", "three", "four", "foo", "bar"], function(e, i, targ, acc) {
+            return e < acc ? e : acc;
+        }));
+
+        console.log("> findFirst");
+        console.log(L.$findFirst("pages", function(e, i, t) {
+            return e === "d";
+        }));
+
+        console.log("> findLast");
+        console.log(L.$findLast(["a","b","c","d","e","d","b"], function(e, i, t) {
+            return e === "b";
+        }));
+
+        console.log("> compact");
+        console.log(L.$compact([1,null,2,2,3,0,4,undefined,5,5,null,false,8]));
+
+        console.log("> contains");
+        console.log(L.$contains([1,2,3,4,5], 4));
+        console.log(L.$contains([1,2,3,4,5], "4"));
+        console.log(L.$contains([1,2,3,4,5], 6));
+
+        console.log("> invoke");
+        console.log(L.$invoke([[1,2,3],[4,5,6],[7,8,9]], "max"));
+        console.log(L.$invoke([[1,2,3],[4,5,6],[7,8,9]], "reduce", function(acc, e, i, t) {
+            return acc + e;
+        }))
+
+        console.log("> filter");
+        console.log(L.$filter([1,2,3,4,5,6,7,8], function(e, i, t) {
+            return e % 2;
+        }));
+
+        console.log("> reject");
+        console.log(L.$reject([1,2,3,4,5,6,7,8], function(e, i, t) {
+            return e % 2;
+        }, {foo:1}));
+
+        console.log("> flatten");
+        console.log(L.$last("tallarray", 'frank', ['bob', 'lisa'], ['jill', ['tom', 'sally']]));
+        console.log(L.$flatten("tallarray"));
+        console.log(L.$range("tallarray",0))
+
+        console.log("> group");
+        console.log(L.$group([1.3, 2.1, 2.4], function(num){ return Math.floor(num); }));
+        console.log(L.$group(['one', 'two', 'three'], "length"));
+
+        console.log("> search");
+        console.log(L.$search([10, 20, 30, 40, 50], 50));
+        console.log(L.$search([10, 20, 30, 40, 50], 35));
+
+        console.log("> search index");
+        console.log(L.$search([10, 20, 30, 40, 50], 35, true));
+        console.log(L.$search([10, 20, 30, 40, 50], 50, true));
+
+        console.log("> sortedIndex");
+        console.log(L.$sortedIndex([10, 20, 30, 40, 50], 35));
+
+        console.log("> sort");
+        var sortby = [{
+           "h_id": "3",
+           "city": "Dallas",
+           "state": "TX",
+           "zip": "75201",
+           "price": "162500"
+        }, {
+           "h_id": "4",
+           "city": "Bevery Hills",
+           "state": "CA",
+           "zip": "90210",
+           "price": "319250"
+        }, {
+           "h_id": "5",
+           "city": "New York",
+           "state": "NY",
+           "zip": "00010",
+           "price": "962500"
+        }];
+        console.log(L.$sortBy(this.copy(sortby), 'city', function(a){return a}, false))
+        console.log(L.$sortBy(this.copy(sortby), 'price', true))
+
+        console.log("> pluck");
+        console.log(L.$pluck([
+            {user: 'tom', state: 'NY'},
+            {user: 'dick', state: 'NJ'},
+            {user: 'harry', state: 'ND'}],
+            "state"));
+
+        console.log("> after");
+        var _after = L.$after(3, function() { console.log("done"); });
+        _after();_after();_after();
+
+        console.log("> zip");
+        console.log(L.$zip(['moe', 'larry', 'curly'], [30, 40, 50, 60, 70], [true, false, false],["why","i","otta"]))
+
+        console.log("> invoke");
+        console.log(L.$invoke(L.$zip(['moe', 'larry', 'curly'], [30, 40, 50, 60, 70], [true, false, false],["why","i","otta"]), "compact"))
+
+        console.log("PAGES: ");
+        console.log(L.$range("pages", 0));
+        console.log(L.$shuffle("pages"));
+        console.log(L.$range("pages", 0));
+
+        console.log("> first");
+        L.$first("a", "a1", "a2", "a3", "foo", "bar", "baz");
+        L.$first("b", "b1", "b2", "b3", "foo");
+        L.$first("c", "c1", "c2", "c3", "foo", "bar");
+
+        console.log("> range");
+        console.log(L.$range("a", 0));
+        console.log(L.$range("b", 0));
+        console.log(L.$range("c", 0));
+
+        console.log("> intersect");
+        console.log(L.$intersect("a", "b", "c"));
+        console.log(L.$intersect(["foo", "bar", "c1"], "a", "c"));
+
+        console.log("> diff");
+        console.log(L.$diff("a","b","c"));
+        console.log(L.$diff(["foo", "bar", "bink"], "a", "b", "c"));
+
+        console.log("> union");
+        console.log(L.$union("a", "b", "c"));
+        console.log(L.$union(["zip","zap"], "a", "b", "c"));
+
+        console.log("> boundFunction");
+        L.$compiledFunction("console.log(foo)").apply({foo: "bar"});
+
+		var a = Terrace.list.spawn({ foo: "bar" });
+
+		console.log(a);
+
+    })
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>

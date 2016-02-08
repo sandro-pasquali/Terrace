@@ -1,0 +1,10 @@
+<!-- `it` is the local reference to the binding -->
+<script type="text/x-template">
+<div>
+	<% Terrace.iterate(binding.stooges, function(e, i, t) { %>
+		<div name="{{= !e.name }}">
+			hello: {{= e.name }} <span>nice to see you</span>
+		</div>
+	<% }); %>
+</div>
+</script>

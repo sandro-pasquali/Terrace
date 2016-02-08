@@ -1,0 +1,11 @@
+{
+  "name": "UDP",
+  "version": "0.0.1",
+  "description": "Terrace Module. User Datagram Protocol interface.",
+  "keywords": [],
+  "repository": "",
+  "author": "Sandro Pasquali <spasquali@gmail.com>",
+  "dependencies": {},
+  "main": "UDP",
+  "engines": { "node": ">= 0.6.2" }
+}

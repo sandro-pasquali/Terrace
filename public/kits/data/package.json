@@ -1,0 +1,11 @@
+{
+  "name": "data",
+  "version": "0.0.1",
+  "description": "datastore",
+  "keywords": [],
+  "repository": "",
+  "author": "Sandro Pasquali <spasquali@gmail.com>",
+  "dependencies": {},
+  "main": "data",
+  "engines": { "node": ">= 0.6.2" }
+}

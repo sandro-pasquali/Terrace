@@ -1,0 +1,28 @@
+<script type="text/x-template">
+
+<script><%
+
+Terrace.set("stooges", [{name : 'larryjj'},{name : 'curly'},{name : 'moe'}]);
+
+%></script>
+
+	<div 	id				= "listy"
+			class			= "bits list"
+			data-binding	= "remote|../../dummy.json|stooges"
+	>
+		<ul class="list">
+			<script type="text/x-template" data-force-refresh="true">
+			<% Terrace.iterate(binding, function(e, i, t) { %>
+				<li id="">{{= e.name }}</li>
+			<% }); %>
+			</script>
+		</ul>
+
+		<div 	class			= "bits ui"
+				data-controller	= "adder/input.js"
+				data-view		= "adder/input.template"
+				data-binding	= "parent|*"
+				data-events		= "click"
+		></div>
+	</div>
+</script>

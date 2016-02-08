@@ -1,0 +1,11 @@
+{
+  "name": "concierge",
+  "version": "0.0.1",
+  "description": "Node server starter and client service kit.",
+  "keywords": [],
+  "repository": "",
+  "author": "Sandro Pasquali <spasquali@gmail.com>",
+  "dependencies": {},
+  "main": "concierge",
+  "engines": { "node": ">= 0.6.2" }
+}

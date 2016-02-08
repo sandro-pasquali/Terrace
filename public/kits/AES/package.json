@@ -1,0 +1,11 @@
+{
+  "name": "AES",
+  "version": "0.0.1",
+  "description": "Implementation of AES symmetric block cipher",
+  "keywords": [],
+  "repository": "",
+  "author": "Sandro Pasquali <spasquali@gmail.com>",
+  "dependencies": {},
+  "main": "AES",
+  "engines": { "node": ">= 0.6.2" }
+}

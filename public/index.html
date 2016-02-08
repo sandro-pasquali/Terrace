@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Terrace</title>
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script type="text/javascript" src="terrace.js"></script>
+    
+    <script type="text/javascript">
+    
+      Terrace.require("client");
+    
+    </script>
+
+</head>
+<body>
+
+
+
+<div class="bits layout" data-css="base.css tj.css" data-model="tj.js" data-view="erase.html">
+
+<section id="logo"><span class="logo-title">Terrace<span class="icon"></span><em>1.0.0</em></span><span class="description"> 
+web application framework for <a href="http://nodejs.org">nodejs</a> and your clients</span></section>
+
+<section id="content">
+<section>
+<h2>Core</h2>
+<h3 id="app.param">Terrace.require(kit, [kit,kit,kit...], callback)</h3><p>Start <code>Terrace</code> client. 
+</p><pre class="js"><code>Terrace.require("client", function() {
+  this.dom.ready(function() {
+    this.subscribeOnce("bind:complete", function() {
+      this.notify("Bind is complete");
+        });
+    });
+});
+</code></pre>
+
+</section>
+
+</div>
+
+</body>
+</html>

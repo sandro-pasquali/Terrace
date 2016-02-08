@@ -1,0 +1,11 @@
+{
+  "name": "date",
+  "version": "0.0.1",
+  "description": "Module for Terrace. Methods to work with dates.",
+  "keywords": [""],
+  "repository": "",
+  "author": "Sandro Pasquali <spasquali@gmail.com>",
+  "dependencies": {},
+  "main": "date",
+  "engines": { "node": ">= 0.4.10" }
+}

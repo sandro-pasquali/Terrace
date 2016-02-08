@@ -1,0 +1,25 @@
+<!-- `it` is the local reference to the binding -->
+<script type="text/x-template">
+<div>
+	<% Terrace.iterate(binding, function(e, i, t) { %>
+		<div name="{{= !e.name }}">
+			hello: {{= e.name }} <span>nice to see you</span>
+
+			<blockquote>
+				<blockquote>
+					<div 	id				= "testing-json23-{{= !i }}"
+							class			= "bits generic"
+							data-view		= "test.template"
+							data-binding	= "other|testing-json2|*"
+							data-controller	= "test.js"
+							data-events 	= "click"
+					></div>
+					^^^ json path in a template, bound to other->testing-json2
+
+				</blockquote>
+			</blockquote>
+
+		</div>
+	<% }); %>
+</div>
+</script>

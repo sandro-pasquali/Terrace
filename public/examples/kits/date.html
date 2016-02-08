@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript" src="../../terrace.js"></script>
+	<script type="text/javascript">
+
+    Terrace.require("date", function() {
+
+		this.date
+			.setTime()
+			.format("dddd, MMMM Do YYYY, h:mm:ss a")
+			.notify("American English: " + this.date.$)
+
+			.loadLang("ca", function() {
+				this
+					.format("dddd, MMMM Do YYYY, h:mm:ss a")
+					.notify("Catalan: " + this.$);
+			})
+
+			.loadLang("da", function() {
+				this
+					.format("dddd, MMMM Do YYYY, h:mm:ss a")
+					.notify("Danish: " + this.$);
+			})
+
+			.loadLang("de", function() {
+				this
+					.format("dddd, MMMM Do YYYY, h:mm:ss a")
+					.notify("German: " + this.$);
+			})
+
+			.loadLang("en-gb", function() {
+				this
+					.format("dddd, MMMM Do YYYY, h:mm:ss a")
+					.notify("British English: " + this.$);
+			})
+
+			.loadLang("es", function() {
+				this
+					.format("dddd, MMMM Do YYYY, h:mm:ss a")
+					.notify("Spanish: " + this.$);
+			})
+
+			.loadLang("eu", function() {
+				this
+					.format("dddd, MMMM Do YYYY, h:mm:ss a")
+					.notify("Basque: " + this.$);
+			})
+
+			.loadLang("fi", function() {
+				this
+					.format("dddd, MMMM Do YYYY, h:mm:ss a")
+					.notify("Finnish: " + this.$);
+			})
+
+			.loadLang("fr", function() {
+				this
+					.format("dddd, MMMM Do YYYY, h:mm:ss a")
+					.notify("French: " + this.$);
+			})
+
+			.loadLang("gl", function() {
+				this
+					.format("dddd, MMMM Do YYYY, h:mm:ss a")
+					.notify("Galician: " + this.$);
+			})
+
+			.loadLang("it", function() {
+				this
+					.format("dddd, MMMM Do YYYY, h:mm:ss a")
+					.notify("Italian: " + this.$);
+			})
+/*
+			.loadLang("kr", function() {
+				this
+					.format("dddd, MMMM Do YYYY, h:mm:ss a")
+					.notify("Korean: " + this.$);
+			})
+*/
+			.loadLang("nb", function() {
+				this
+					.format("dddd, MMMM Do YYYY, h:mm:ss a")
+					.notify("Dutch: " + this.$);
+			})
+
+			.loadLang("nl", function() {
+				this
+					.format("dddd, MMMM Do YYYY, h:mm:ss a")
+					.notify("Norwegian: " + this.$);
+			})
+
+			.loadLang("pl", function() {
+				this
+					.format("dddd, MMMM Do YYYY, h:mm:ss a")
+					.notify("Polish: " + this.$);
+			})
+
+			.loadLang("pt", function() {
+				this
+					.format("dddd, MMMM Do YYYY, h:mm:ss a")
+					.notify("Portuguese: " + this.$);
+			})
+
+			.loadLang("ru", function() {
+				this
+					.format("dddd, MMMM Do YYYY, h:mm:ss a")
+					.notify("Russian: " + this.$);
+			})
+
+			.loadLang("sv", function() {
+				this
+					.format("dddd, MMMM Do YYYY, h:mm:ss a")
+					.notify("Swedish: " + this.$);
+			})
+
+			.loadLang("tr", function() {
+				this
+					.format("dddd, MMMM Do YYYY, h:mm:ss a")
+					.notify("Turkish: " + this.$);
+			})
+/*
+			.loadLang("zh-cn", function() {
+				this
+					.format("dddd, MMMM Do YYYY, h:mm:ss a")
+					.notify("Chinese (PRC): " + this.$);
+			})
+
+			.loadLang("zh-tw", function() {
+				this
+					.format("dddd, MMMM Do YYYY, h:mm:ss a")
+					.notify("Chinese (Taiwan): " + this.$);
+			})
+*/
+    });
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>

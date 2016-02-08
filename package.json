@@ -1,0 +1,20 @@
+{
+  "name": "terrace",
+  "version": "0.2.3",
+  "description": "Full stack Javascript application development framework using Nodejs and jQuery",
+  "keywords": ["nodejs", "jquery", "framework", "library", "javascript", "sinatra", "declarative", "web"],
+  "repository": "git://github.com/sandro-pasquali/Terrace",
+  "author": "Sandro Pasquali <spasquali@gmail.com>",
+  "dependencies": {
+    "formidable"    : "*",
+    "hiredis"       : "*",
+    "redis"         : "*",
+    "clio"			: "*",
+    "should"		: "*",
+    "mocha"			: "*",
+    "mailer"		: "*"
+  },
+  "directories": ["bin","public","rsa","test", "uploads"],
+  "engines": { "node": ">= 0.8.0" }
+}
+

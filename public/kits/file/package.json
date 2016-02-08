@@ -1,0 +1,11 @@
+{
+  "name": "file",
+  "version": "0.0.1",
+  "description": "Terrace Module. Filesystem management kit.",
+  "keywords": [],
+  "repository": "",
+  "author": "Sandro Pasquali <spasquali@gmail.com>",
+  "dependencies": {},
+  "main": "file",
+  "engines": { "node": ">= 0.6.2" }
+}

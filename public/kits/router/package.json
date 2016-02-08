@@ -1,0 +1,11 @@
+{
+  "name": "router",
+  "version": "0.0.1",
+  "description": "Routing kit.",
+  "keywords": [],
+  "repository": "",
+  "author": "Sandro Pasquali <spasquali@gmail.com>",
+  "dependencies": {},
+  "main": "router",
+  "engines": { "node": ">= 0.6.2" }
+}

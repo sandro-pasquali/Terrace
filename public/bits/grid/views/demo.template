@@ -1,0 +1,22 @@
+<script type="text/x-template">
+
+<table width="100%">
+	<% for(var i=0; i < 5; i++) { %>
+
+	<tr>
+		<td valign="top" width="50%">
+			<div id="__myGrid{{= !i }}" class="slick-grid" style="width:600px;height:500px;display:none;"></div>
+		</td>
+		<td valign="top">
+			<h2>Demonstrates: {{= !i }}</h2>
+			<ul>
+				<li>basic grid with minimal configuration</li>
+			</ul>
+		</td>
+	</tr>
+
+	<% } %>
+
+</table>
+
+</script>

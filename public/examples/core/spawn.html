@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Untitled</title>
+<script type="text/javascript" src="../../terrace.js"></script>
+<script type="text/javascript">
+
+var spawn1 = Terrace.spawn({
+    a   : "aa",
+    b   : "bb",
+    c   : "cc"
+}).extend({
+    foo:    function() {
+        console.log(this.$get("b"));
+    }
+})
+
+var spawn2 = spawn1.spawn({
+    a   : "aaaa",
+    b   : "bbbb",
+    c   : "cccc"
+});
+
+var spawn3 = spawn2.spawn({
+    a   : "aaaaaa",
+    b   : "bbbbbb",
+    c   : "cccccc"
+})
+
+var spawn4 = spawn3.spawn({
+    a   : "aaaaaa",
+    b   : "bbbbbb",
+    c   : "cccccc"
+}).extend({
+    foo:    function() {
+        console.log(this.$get("c"));
+    }
+})
+
+spawn1.foo();
+spawn2.foo();
+spawn3.foo();
+
+spawn4.foo();
+
+spawn3.foo();
+spawn2.foo();
+spawn1.foo();
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+process.on('uncaughtException', function(err) {
+	clio.write("@yellow@_black BUILD ERROR @@`");
+	clio.write("@white@_red " + err + " @@`");
+	process.exit(1);
+});
+
+var fs 		= require('fs');
+var redis	= require('redis');
+var client	= redis.createClient();
+var clio 	= require("clio")();
+
+var config 		= require("../config.json");
+var db_prefix 	= config.db_prefix + ":";
+
+var config_data_key = db_prefix + "server:config";
+var total 	= 0;
+
+if(!/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(config.admin_email)) {
+    throw("Invalid email address in config.admin_email -- Received @green@_black " + config.admin_email + " @@");
+}
+
+if(!/^[^\s]{6,50}$/.test(config.admin_password)) {
+	throw("Invalid password in config.admin_password -- Must be between 6 and 50 characters. Received @green@_black " + config.admin_password + " @@");
+}
+
+var createRedisKey = function() {
+	var args 	= Array.prototype.slice.call(arguments, 0);
+	var op		= args.shift();
+	var key 	= args[0];
+
+	args.push(function(err) {
+		clio.write("@green " + key + " OK @@`");
+		trackLoad(err, key);
+	});
+
+	clio.write("@blue Redis: Creating " + key + " @@`");
+
+	++total;
+
+	client[op].apply(client, args);
+};
+
+var trackLoad = function(err, key) {
+	if(err) {
+		throw("UNABLE TO CREATE " + key + " KEY IN REDIS: @yellow " + err + " @@");
+		process.exit(0);
+	}
+	--total;
+	if(total === 0) {
+		clio.write("@white@_green make->build complete @@`");
+		process.exit(0);
+	}
+};
+
+createRedisKey("hset", db_prefix + "users", config.admin_email, config.admin_password);
+createRedisKey("hmset", config_data_key, config);

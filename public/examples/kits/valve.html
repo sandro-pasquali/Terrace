@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript" src="../../terrace.js"></script>
+	<script type="text/javascript">
+
+    Terrace.require("valve", function() {
+
+        this.testing
+            .parallel()
+
+		.has("all", 12345, function(err, res) {
+			console.log("+++++++++++++++++++++++++++++++++++++++++++++HAS METHOD CALLBACK");
+			console.log(arguments);
+		})
+/*
+			.until(1000, function(err, r) {
+				console.log("+++++++++++++++++++++++++++++++++++++++++++++HAS UNTIL");
+				console.log(r);
+			})
+*/
+			.or(function(err, r) {
+				console.log("+++++++++++++++++++++++++++++++++++++++++++++HAS OR");
+				console.log(r);
+			})
+			.always(function(err, r) {
+				console.log("+++++++++++++++++++++++++++++++++++++++++++++HAS ALWAYS");
+				console.log(r);
+			})
+
+			.then(function(err, r) {
+				console.log("+++++++++++++++++++++++++++++++++++++++++++++HAS THEN");
+				console.log(r);
+				this
+				.testing
+				.parallel()
+					.spic("spicarg")
+						.then(function(err, res) {
+							console.log("spic_2_1: ");
+							console.log(res);
+						})
+						.then(function(err, res) {
+							console.log("spic_2_2: ");
+							console.log(err, res);
+						})
+						.then(function(err, res) {
+							console.log("spic_2_3: ");
+							console.log(res);
+						})
+					.span("spanarg")
+						.then(function(err, res) {
+							console.log("span_2_1: ");
+							console.log(res);
+						})
+				.end(function(err, res) {
+					console.log("@@@@@@ NEST 2 @@@@@@@");
+					console.log(res.results);
+				})
+
+				return r + " is flabulous";
+			})
+			//.tries(3)
+
+        .end(function(err, res) {
+            console.log("@@@@@@@@@@@@@@@@ END OF PARALLEL TRANSACTION @@@@@@@@@@@@@@@@");
+            console.log("ERRORED: " + err);
+            console.log(arguments);
+        })
+
+    })
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>

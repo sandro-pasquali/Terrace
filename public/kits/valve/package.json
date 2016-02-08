@@ -1,0 +1,11 @@
+{
+  "name": "_valve",
+  "version": "0.0.1",
+  "description": "$ extensions of Terrace. Control-flow system, with promises.",
+  "keywords": [""],
+  "repository": "",
+  "author": "Sandro Pasquali <spasquali@gmail.com>",
+  "dependencies": {},
+  "main": "_valve",
+  "engines": { "node": ">= 0.4.10" }
+}

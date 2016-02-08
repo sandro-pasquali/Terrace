@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Terrace</title>
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+
+	<style type="text/css">
+		.bits {
+/*opacity: 0;*/
+		}
+	</style>
+
+    <script type="text/javascript" src="../jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="../terrace.js"></script>
+
+    <script type="text/javascript">
+
+	Terrace.set("stooges", [{name : 'larry'},{name : 'curly'},{name : 'moe'}]);
+
+    Terrace.require("client", function() {
+        this
+        .subscribe(".notification", function(n) {
+            try {
+                console.log("**NOTIFICATION**")
+                console.log(n.msg);
+            } catch(e){};
+        })
+        .dom.ready(function() {
+            this
+            .subscribeOnce("bind:complete", function(boundObs) {
+
+				this.notify("Bind is complete");
+
+
+				console.log("****************************************************************");
+				//console.log(boundObs);
+                Terrace.set("stooges.0.name", "sandro");
+                //Terrace.bits.$get("testing-json2").model.set("binding.0.name", "FooBario in json");
+            	//Terrace.bits.$get("testing-channel").model.set("binding.stooges.0.name", "FooBario in channel");
+
+				var start = new Date().getTime();
+
+				for(var x=0; x < 10; x++) {
+					//Terrace.bits.$get("testing-json23-0").model.set("binding.0.name","*** running in reverse " + x);
+				}
+            })
+
+            this.publish("myPrivateIdaho", {"stooges":[{"name":"larry_"},{"name": "curly_"},{"name":"moe_"}]});
+
+            this.subscribe("bit:inliner:loaded", function() {
+            	console.log("INLINER");
+            	console.log(arguments);
+            });
+        });
+    });
+
+    </script>
+</head>
+<body>
+
+<div	id 			 	= "layout-bootstrap"
+		class			= "bits layout"
+		data-params		= "
+			using 	    | modal,button
+			responsive  | true
+		"
+></div>
+
+<div    id              = "the-header"
+        class           = "bits header"
+        data-waitfor    = "layout-bootstrap"
+        data-events		= "click"
+        data-params     = "
+            padTop  | 54
+        "
+></div>
+
+
+<div 	id			= "container"
+		class		= "bits generic container"
+>
+
+
+<div 	id				= "stats"
+		class		 	= "bits stats"
+		data-params		= "
+			height 		| 100
+			width		| 200
+			placement	| bottomright
+		"
+></div>
+
+<div 	id				= "notifier"
+		class			= "bits notifier"
+></div>
+
+
+<div 	id				= "testing-json"
+		class			= "bits generic"
+		data-view		= "test.template.base.json"
+		data-binding	= "remote|json/dummy.json|*"
+		data-controller	= "test.js"
+		data-events 	= "click"
+></div>
+^^^ json base, own remote
+
+<div 	id				= "testing-json2"
+		class			= "bits generic"
+		data-view		= "test.template"
+		data-binding	= "remote|json/dummy.json|stooges"
+		data-controller	= "test.js"
+		data-events 	= "click"
+></div>
+^^^ json path, own remote
+
+
+<div 	id				= "testing-channel"
+		class			= "bits generic"
+		data-view		= "test.template.base.json"
+		data-binding	= "channel|myPrivateIdaho|*"
+		data-controller	= "test.js"
+		data-events 	= "click"
+></div>
+^^^ channel, own channel
+
+<div 	id				= "layout-header"
+		class			= "bits generic"
+		data-view		= "test.template test2.template"
+		data-binding	= "main|stooges"
+		data-controller	= "test.js"
+		data-events 	= "click"
+		data-options	= "one=two, three=4, five=IIIII"
+>
+	<div id="clickable">click me</div>
+
+	<div 	id				= "layout-header-1"
+			class			= "bits generic"
+			data-binding	= "other|layout-header|*"
+			data-view		= "test.template"
+			data-controller	= "test.js"
+			data-events 	= "click"
+	>
+		<div id="inner-clickable">other::layout-header</div>
+	</div>
+
+	<div 	id				= "layout-header-22"
+			class			= "bits generic"
+			data-binding	= "other|testing-channel|*"
+			data-view		= "test.template.base.json"
+			data-model		= "test.js"
+			data-controller	= "test.js"
+			data-events 	= "click"
+			data-timeout-action = "retry|1"
+	>
+<!--
+			also: update test.js model to create delay
+
+			data-events 	= "click"
+			data-timeout-action = "retry|1"
+-->
+		<div id="inner-clickable">other::testing-channel</div>
+	</div>
+
+	<div 	id				= "layout-header-2"
+			class			= "bits generic"
+			data-binding	= "previous|*"
+			data-controller	= "test.js"
+			data-events 	= "click"
+	>
+		<div id="inner-clickable2">Previous</div>
+	</div>
+
+	<div 	id				= "layout-header-3"
+			class			= "bits generic"
+			data-binding	= "parent|*"
+			data-controller	= "test.js"
+			data-events 	= "click"
+	>
+		<div id="inner-clickable3">parent->Terrace</div>
+	</div>
+
+	<div 	id				= "layout-header-4"
+			class			= "bits generic"
+			data-binding	= "other|testing-channel|*"
+			data-controller	= "test.js"
+			data-events 	= "click"
+	>
+		<div id="inner-clickable4">other->testing-channel</div>
+	</div>
+
+	<form>
+		<script type="text/x-template">
+		<input type="text" id="input_field" />
+		</script>
+	</form>
+</div>
+
+
+
+<br />
+
+<!--	Check this template - it contains several nested bits which are bound to a
+		bit at this level (testing-json2), so the model changes executed in head
+		will change templates displayed in this nesting.
+-->
+
+<div 	id				= "nestation-4"
+        class			= "bits generic"
+        data-view       = "test-nesting-bits.template"
+        data-binding	= "main|stooges"
+        data-controller	= "test.js"
+        data-events 	= "click"
+>
+    <div id="inner-nestation-4">This should have nested templates:</div>
+</div>
+
+</div> <!-- end container -->
+
+
+</body>
+</html>

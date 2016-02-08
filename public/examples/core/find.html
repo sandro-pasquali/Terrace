@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Untitled</title>
+<script type="text/javascript" src="../../terrace.js"></script>
+<script type="text/javascript">
+
+var a = {
+    "glossary": {
+        "title": "example glossary",
+		"GlossDiv": {
+            "title": "S",
+			"GlossList": {
+                "GlossEntry": {
+                    "ID": "SGML",
+					"SortAs": "SGML",
+					"GlossTerm": "Standard Generalized Markup Language",
+					"Acronym": "SGML",
+					"Abbrev": "ISO 8879:1986",
+					"GlossDef": {
+                        "para": "A meta-markup language, used to create markup languages such as DocBook.",
+						"GlossSeeAlso": ["GML", "XML"]
+                    },
+					"GlossSee": "markup"
+                }
+            }
+        }
+    }
+};
+
+//	Find a k/v match.
+//
+console.log(Terrace.$find("Acronym", "SGML", "", a));
+
+//	In an array.
+//
+console.log(Terrace.$find(1, "XML", "", a));
+
+//	Find multiple matches using a selective function.
+//
+console.log(Terrace.$find("title", function(curKey, val) {
+	return curKey === "title";
+}, "", a));
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<div id="starter">
+
+	<div>1 <img src="http://soulinthemachine.com/dev/wp-content/uploads/2011/08/37.jpg" style="width:400px;" /></div>
+	<div>2 <img src="http://graphics8.nytimes.com/images/2012/02/28/arts/JP-DESIGN-1/JP-DESIGN-1-articleLarge.jpg" style="width:400px;" /></div>
+	<div>3 <img src="http://4.bp.blogspot.com/_ue2_vDGeEV8/TGwi5oOiL2I/AAAAAAAAC8I/vN92gVkQEYs/s1600/modernarchitect.jpg" style="width:400px;" /></div>
+	<div>4 <img src="http://www.trendir.com/house-design/modern-spanish-architecture-8.jpg" style="width:400px;" /></div>
+</div>
+
+<!--
+<button onclick="brace.prev()">PREVIOUS</button><button onclick="brace.next()">NEXT</button><br />
+<br />
+-->
+
+<button onclick="brace.moveTo(0, -1)">INDEX 1 <- PREVIOUS</button><br />
+<button onclick="brace.moveTo(1, -1)">INDEX 2 <- PREVIOUS</button><br />
+<button onclick="brace.moveTo(2, -1)">INDEX 3 <- PREVIOUS</button><br />
+<button onclick="brace.moveTo(3, -1)">INDEX 4 <- PREVIOUS</button><br />
+
+<br />
+
+<button onclick="brace.moveTo(0, 1)">NEXT > 1</button><br />
+<button onclick="brace.moveTo(1, 1)">NEXT > 2</button><br />
+<button onclick="brace.moveTo(2, 1)">NEXT > 3</button><br />
+<button onclick="brace.moveTo(3, 1)">NEXT > 4</button><br />
+</script>

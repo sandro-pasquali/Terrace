@@ -1,0 +1,11 @@
+{
+  "name": "dictionary",
+  "version": "0.0.1",
+  "description": "Terrace Module. Redis-based K/V lookup.",
+  "keywords": [],
+  "repository": "",
+  "author": "Sandro Pasquali <spasquali@gmail.com>",
+  "dependencies": {},
+  "main": "dictionary",
+  "engines": { "node": ">= 0.6.2" }
+}

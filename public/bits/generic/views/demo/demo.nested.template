@@ -1,0 +1,37 @@
+<script type="text/x-template">
+
+<script><%
+
+Terrace
+	.set("stooges", [{name : 'larry'},{name : 'curly'},{name : 'moe'}])
+	.subscribeOnce("bit:testing-json23-0:ready", function(bit) {
+
+		for(var x=0; x < 10; x++) {
+			bit.model.set("binding.0.name","*** running in reverse " + x);
+		}
+}, {
+    greedy: false
+});
+
+%></script>
+
+<div 	id				= "testing-json2"
+		class			= "bits generic"
+		data-view		= "test.template"
+		data-binding	= "remote|../../dummy.json|stooges"
+		data-controller	= "test.js"
+		data-events 	= "click"
+></div>
+^^^ testing-json2 << referred to by nested bindings
+
+<div 	id				= "nestation-4"
+        class			= "bits generic"
+        data-view       = "test-nesting-bits.template"
+        data-binding	= "main|stooges"
+        data-controller	= "test.js"
+        data-events 	= "click"
+>
+    <div id="inner-nestation-4">This should have nested templates:</div>
+</div>
+
+</script>

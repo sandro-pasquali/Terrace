@@ -1,0 +1,11 @@
+{
+  "name": "dom",
+  "version": "0.0.1",
+  "description": "Module for Terrace. DOM Methods. **This is an essential extension if you are using Terrace in the Dom.",
+  "keywords": [""],
+  "repository": "",
+  "author": "Sandro Pasquali <spasquali@gmail.com>",
+  "dependencies": {},
+  "main": "dom",
+  "engines": { "node": ">= 0.4.10" }
+}

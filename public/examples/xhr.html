@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Untitled</title>
+<script type="text/javascript" src="../terrace.js"></script>
+<script type="text/javascript">
+
+(function($) {
+
+	$
+	.configure({
+		useNativeArrayMethods		: false
+	})
+	.require("xhr", "json", "data", "template", function() {
+
+		this
+		.xhr
+		.set({
+			"onComplete"	: function(err, ob) {
+				console.log("onComplete fired");
+				console.log(ob);
+			}
+		})
+		.data("foo=bar")
+
+		.get("xhr.html", function(err, res) {
+			console.log(res);
+		})
+
+		var templateA = this.template.spawn().prepare("hello: <%= name %>");
+		var templateB = this.template.spawn().prepare("goodbye: <%= name %>");
+
+		console.log(templateA.render({name : 'moe'}));
+		console.log(templateB.render({name : 'larry'}));
+
+		console.log("HIHIIHIHI");
+		console.log($.data.set("sandro.pandro", {foo: "bar"}).get("sandro.pandro"));
+
+
+		console.log("***");
+		console.log($.sub([1,2,3]));
+
+	})
+
+})(Terrace)
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

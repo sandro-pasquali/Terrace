@@ -1,0 +1,105 @@
+/**
+ *	See %notifier
+ */
+
+#purr-container {
+	position: fixed;
+	top: 0;
+	right: 0;
+}
+
+.notifier {
+	position: relative;
+	width: 324px;
+	z-index: 15000;
+}
+
+.notifier a {
+	position: absolute;
+	top: 12px;
+	right: 12px;
+	display: block;
+	width: 18px;
+	height: 17px;
+	text-indent: -9999px;
+	background: url(images/purrClose.png)
+	no-repeat 0 10px;
+}
+
+.notifier-body {
+	min-height: 50px;
+	padding: 22px 22px 0 22px;
+	background: url(images/purrTop.png) no-repeat left top;
+	color: #f9f9f9;
+}
+
+.notifier-body img {
+	width: 50px;
+	margin: 0 10px 0 0;
+	float: left;
+}
+
+.notifier-body h3	{
+	font-size: 1.2em;
+}
+
+.notifier-body p {
+	margin: 5px 0 0 20px;
+	font-size: 1.0em;
+	line-height: 1.4em;
+}
+
+.notifier-bottom {
+	height: 22px;
+	background: url(images/purrBottom.png) no-repeat left top;
+}
+
+.notifier-icon {
+	width: 32px;
+	height: 32px;
+	float: left;
+}
+
+.notifier-icon-info {
+	background: url(images/notifier-info.png) no-repeat left top;
+}
+
+.notifier-icon-announce {
+	background: url(images/notifier-announce.png) no-repeat left top;
+}
+
+.notifier-icon-saving {
+	background: url(images/notifier-saving.png) no-repeat left top;
+}
+
+.notifier-icon-uploading {
+	background: url(images/notifier-uploading.png) no-repeat left top;
+}
+
+.notifier-icon-error {
+	background: url(images/notifier-error.png) no-repeat left top;
+}
+
+.notifier-icon-help {
+	background: url(images/notifier-help.png) no-repeat left top;
+}
+
+.notifier-icon-deleting {
+	background: url(images/notifier-deleting.png) no-repeat left top;
+}
+
+.notifier-icon-loading {
+	background: url(images/notifier-loading.png) no-repeat left top;
+}
+
+.notifier-icon-alert {
+	background: url(images/notifier-alert.png) no-repeat left top;
+}
+
+.notifier-icon-note {
+	background: url(images/notifier-note.png) no-repeat left top;
+}
+
+.notifier-icon-publishing {
+	background: url(images/notifier-publishing.png) no-repeat left top;
+}

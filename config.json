@@ -1,0 +1,14 @@
+{
+	"db_prefix"				: "terracejs",
+	
+	"default_http_index"	: "index.html",
+
+	"admin_email"			: "spasquali@gmail.com",
+	"admin_password"		: "changeme",
+	"mailer_from"			: "spasquali@gmail.com",
+	
+	"_regexp_username" 		: "return a.match(/\\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}\\b/)",
+	"_regexp_password"		: "return a.match(/^\\w{6,}$/)",
+	"_regexp_client_id"		: "return a.match(/^[a-z\\d]{64}$/)",
+	"_regexp_fingerprint"	: "return a.match(/^[a-z\\d]{64}$/)"
+}

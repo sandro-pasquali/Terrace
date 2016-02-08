@@ -1,0 +1,197 @@
+/*	The element into which the rendered slider is inserted.
+	This styling has no bearing on the slider styling.
+*/
+.slider {
+	width				: 400px;
+	background-color	: #f3f3f8;
+}
+
+/*	The slider rounds corners using this definition. It is optional,
+	but recommended.
+*/
+.rounded-corners-3 {
+	-moz-border-radius		: 3px;
+	-webkit-border-radius	: 3px;
+	-o-border-radius:		: 3px;
+	border-radius			: 3px;
+}
+
+/*	The immediate parent of all elements which form the slider proper.
+*/
+.slider .container {
+	position			: relative;
+	height				: 48px;
+	padding-top			: 30px;
+	margin				: 0 auto;
+
+	font-family			: Arial;
+	font-size			: 9px;
+	color				: #909095;
+
+	/* Disable text selection. IE is handled functionally, in control.
+	*/
+	-webkit-user-select	: none;
+	-khtml-user-select	: none;
+	-moz-user-select	: none;
+	-o-user-select		: none;
+	user-select			: none;
+
+	 /*background-color: pink;*/
+}
+
+/*	The container for the range ticks and labels.
+	Note that if you aren't displaying ticks, you probably want some sort of
+	#height here regardless, to accomodate the position value.
+*/
+.slider .ticker {
+	height				: 30px;
+}
+
+/*	A tick.
+*/
+.slider .tickmark {
+	position			: absolute;
+	width				: 1px;
+	height				: 6px;
+	background-color	: #909095;
+	top					: relative;
+	margin-top			: 18px;
+}
+
+/*	The labels over ticks.
+*/
+.slider	.ticklabel {
+	font-size			: 10px;
+	position			: absolute;
+	width				: 20px;
+	top					: relative;
+	margin-top			: 4px;
+	text-align			: center;
+}
+
+/*	In conjunction with .range-inset-inner forms the display of
+	the range "gutter" which handles move along.
+*/
+.slider .range-inset {
+	position				: relative;
+	height					: 2px;
+	background-color		: #b7b7bb;
+	padding-top				: 1px;
+	border-top				: 1px solid #8f8f94;
+	border-bottom			: 1px solid #f7f7fb;
+}
+
+/*	.range-inset contains this. In conjunction they form the
+	display of the range "gutter" which handles move along.
+*/
+.slider .range-inset-inner {
+	height				: 2px;
+	background-color	: #d5d5da;
+}
+
+/*	In conjunction with .range-fill-inner forms the display of
+	the range between handles.
+*/
+.slider .range-fill {
+	position			: relative;
+	height				: 3px;
+	top					: 0px;
+
+	padding-top			: 1px;
+	border-top			: 1px solid #dcf3ff;
+	background-color	: #7c94ac;
+	border-bottom		: 1px solid #dff8ff;
+}
+
+/*	.range-fill contains this. In conjunction they form the display
+	of the range between handles.
+*/
+.slider .range-fill-inner {
+	height				: 1px;
+	border-top			: 1px solid #82b3d7;
+	background-color	: #98c9ee;
+	border-bottom		: 1px solid #acc5db;
+}
+
+/*	Each handle has an invisible area which surrounds it, which catches
+	user clicks. This allows the operator to "miss" the handle proper yet
+	still "grab" it.
+*/
+.slider .handle-net {
+	position				: relative;
+	left					: 0px;
+	display					: block;
+	height					: 0px;
+
+	 /*background-color		: red;*/
+}
+
+/*	The look of handles.
+*/
+.slider .handle {
+	position				: relative;
+	display					: block;
+	left					: 0px;
+	top						: 0px;
+	border-radius			: 6px;
+	-moz-border-radius		: 6px;
+	-webkit-border-radius	: 6px;
+	width					: 10px;
+	height					: 10px;
+	background-color		: #eef1f6;
+
+	border					: 1px solid #717176;
+}
+
+/*	The right/left value displays (the positions of l/r handles)
+*/
+.slider .rl-value-display {
+	font-size	: 14px;
+	font-weight	: bold;
+	color		: #82b3d7;
+	position	: relative;
+	top			: 0px;
+	height		: 16px;
+	width		: 30px;
+	padding		: 0px;
+
+	/*background-color	: purple;*/
+}
+
+/*	The display of current handle position.
+*/
+.slider .current-value-display {
+	opacity			: .9;
+	filter			: alpha(opacity=.9);
+	-ms-filter		: "alpha(opacity=.9)";
+	-khtml-opacity	: .9;
+	-moz-opacity	: .9;
+
+	visibility		: hidden;
+
+	font-size			: 20px;
+	color				: white;
+	background-color	: #6bc9ff;
+	border-bottom		: 1px solid #6b8fad;
+	text-align			: center;
+	width				: 60px;
+	height				: 33px;
+	padding-top			: 12px;
+	position			: relative;
+	left				: 120px;
+	top					: 0px;
+}
+
+/*	The color of a handle when it is depressed.
+*/
+.slider .handleActive {
+	background-color	: #9c9ea1;
+}
+
+/*	Simply decorative bottom. Could be removed.
+*/
+.slider .bottom-border {
+	height				: 12px;
+	border-top			: 1px solid #dfe1e3;
+	background-color	: #ebeef0;
+}

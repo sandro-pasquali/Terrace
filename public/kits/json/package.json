@@ -1,0 +1,11 @@
+{
+  "name": "json",
+  "version": "0.0.1",
+  "description": "Module for Terrace. Json #parse, #stringify for older browsers.",
+  "keywords": [""],
+  "repository": "",
+  "author": "Sandro Pasquali <spasquali@gmail.com>",
+  "dependencies": {},
+  "main": "json",
+  "engines": { "node": ">= 0.4.10" }
+}

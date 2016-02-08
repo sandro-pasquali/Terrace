@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Terrace</title>
+
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+
+	<style type="text/css">
+
+		body {
+		}
+
+		/*	Optional css for layout.
+		 */
+		body {
+			padding-top: 60px;
+			padding-bottom: 40px;
+		}
+
+		.sidebar-nav {
+			padding: 9px 0;
+		}
+
+
+	</style>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../terrace.js"></script>
+
+    <script type="text/javascript">
+
+	Terrace.subscribe("bit:gridB:loaded", function(bit) {
+
+			var bM 		= bit.model;
+			var data	= bM.$get("data");
+			var columns	= bM.$get("columns");
+			var options	= bM.$get("options");
+
+			bit.view.$get("node").find(".slick-grid").each(function(i, g) {
+
+				grid = new Slick.Grid(	"#__myGridB" + i, data, columns, options);
+				$("#__myGridB" + i).show();
+			});
+
+	});
+
+	Terrace.subscribe("bit:gridC:loaded", function(bit) {
+
+			var bM 		= bit.model;
+			var data	= bM.$get("data");
+			var columns	= bM.$get("columns");
+			var options	= bM.$get("options");
+
+			bit.view.$get("node").find(".slick-grid").each(function(i, g) {
+				grid = new Slick.Grid(	"#__myGridC" + i, data, columns, options);
+				$("#__myGridC" + i).show();
+			});
+
+	});
+
+    Terrace.require("client", function() {
+        this.dom.ready(function() {
+            this.subscribeOnce("bind:complete", function() {
+            	var boundBits 	= this.bits.$get("collection");
+            	var note		= "";
+            	var b;
+            	for(b in boundBits) {
+            		note += b + "(" + boundBits[b].length + ")<br />";
+            	}
+                this.notify("Bind is complete:<br />" + note);
+            })
+        });
+    })
+
+    </script>
+</head>
+<body>
+
+<div 	id				= "notifier"
+		class			= "bits notifier"
+></div>
+
+<div	id 			 	= "layout-bootstrap"
+		class			= "bits layout"
+		data-params		= "
+			using 	    | modal,button
+			responsive  | true
+		"
+></div>
+
+<div    id              = "the-header"
+        class           = "bits header"
+        data-waitfor    = "layout-bootstrap"
+        data-events		= "click"
+        data-params     = "
+            padTop  | 54
+        "
+></div>
+
+<div class="container">
+
+	<div    id      			= "gridA"
+			class   			= "bits grid"
+			data-view			= "demo.template"
+			data-model			= "slickgrid.js"
+			data-controller		= "slickgrid.js"
+			data-timeout		= "1400"
+			data-timeout-action	= "retry|6"
+	></div>
+
+	<div    id      		= "gridB"
+			class   		= "bits grid"
+			data-model		= "slickgrid.js model.one.js model.two.js"
+	>
+		<script type="text/x-template">
+
+		<table width="100%">
+			<% for(var i=0; i < 5; i++) { %>
+
+			<tr>
+				<td valign="top" width="50%">
+					<div id="__myGridB{{= !i }}" class="slick-grid" style="width:600px;height:500px;display:none;"></div>
+				</td>
+				<td valign="top">
+					<h2>Demonstrates: {{= !i }}</h2>
+					<ul>
+						<li>basic grid with minimal configuration</li>
+					</ul>
+				</td>
+			</tr>
+
+			<% } %>
+
+		</table>
+
+		</script>
+	</div>
+
+	<div    id      		= "gridC"
+			class   		= "bits grid"
+			data-model		= "slickgrid.js model.one.js model.two.js"
+			data-timeout-action	= "die"
+	>
+		<script type="text/x-template">
+
+		<table width="100%">
+			<% for(var i=0; i < 5; i++) { %>
+
+			<tr>
+				<td valign="top" width="50%">
+					<div id="__myGridC{{= !i }}" class="slick-grid" style="width:600px;height:500px;display:none;"></div>
+				</td>
+				<td valign="top">
+					<h2>Demonstrates:</h2>
+					<ul>
+						<li>basic grid with minimal configuration</li>
+					</ul>
+				</td>
+			</tr>
+
+			<% } %>
+
+		</table>
+
+		</script>
+	</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<script type="text/x-template">
+
+<script><%
+
+Terrace.set("stooges", [{name : 'larry'},{name : 'curly'},{name : 'moe'}]);
+
+%></script>
+
+<div 	id				= "testing-jsonA"
+		class			= "bits generic"
+		data-view		= "test.template"
+		data-binding	= "remote|../../dummy.json|stooges"
+		data-controller	= "test.js"
+		data-events 	= "click"
+></div>
+^^^ testing-jsonA, actual data fetch
+
+<div 	id				= "testing-jsonB"
+		class			= "bits generic"
+		data-view		= "test.template"
+		data-binding	= "other|testing-jsonA|*"
+		data-controller	= "test.js"
+		data-events 	= "click"
+></div>
+^^^ testing-jsonB points to other -> testing-jsonA
+
+<div 	id				= "testing-jsonC"
+		class			= "bits generic"
+		data-view		= "test.template"
+		data-binding	= "other|testing-jsonB|*"
+		data-controller	= "test.js"
+		data-events 	= "click"
+></div>
+^^^ testing-jsonC points to other -> testing-jsonB
+
+</script>

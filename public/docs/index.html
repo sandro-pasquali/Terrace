@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Terrace</title>
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+
+	<style type="text/css"></style>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../terrace.js"></script>
+
+    <script type="text/javascript">
+
+    Terrace.require("client");
+
+    </script>
+</head>
+<body>
+
+<div	id 			 	= "layout-bootstrap"
+		class			= "bits layout"
+		data-params		= "
+			using 	    | modal,button
+			responsive  | true
+		"
+></div>
+
+<div    id              = "the-header"
+        class           = "bits header"
+        data-waitfor    = "layout-bootstrap"
+        data-events		= "click"
+        data-params     = "
+            padTop  | 54
+        "
+></div>
+
+<div 	id				= "notifier"
+		class			= "bits notifier"
+></div>
+
+<div 	id			= "container"
+		class		= "bits generic container"
+>
+
+
+</div> <!-- end container -->
+
+
+</body>
+</html>

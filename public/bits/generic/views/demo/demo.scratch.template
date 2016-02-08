@@ -1,0 +1,36 @@
+<script type="text/x-template">
+
+<script><%
+
+	Terrace.subscribe("bit:undoer:loaded", function(bit) {
+
+		bit.controller.click = {
+			exec	: function() {
+				console.log("click");
+				console.log(arguments);
+			},
+			undo	: function() {
+				console.log("undo");
+				console.log(arguments);
+			}
+		}
+	});
+
+%></script>
+
+<div	id			= "undoer"
+		class		= "bits generic"
+		data-events	= "click mouseover"
+>
+	<div id="undoer-click">Click me</div>
+</div>
+
+<div	id				= "others"
+		class			= "bits generic"
+		data-events		= "click mouseover"
+		data-controller	= "controller.one.js controller.two.js"
+>
+	<div id="others-click">Click too!</div>
+</div>
+
+</script>

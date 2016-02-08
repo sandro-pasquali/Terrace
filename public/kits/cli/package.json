@@ -1,0 +1,11 @@
+{
+  "name": "cli",
+  "version": "0.0.1",
+  "description": "Module for Terrace. Methods to read from and write to CLI.",
+  "keywords": [""],
+  "repository": "",
+  "author": "Sandro Pasquali <spasquali@gmail.com>",
+  "dependencies": {},
+  "main": "cli",
+  "engines": { "node": ">= 0.4.10" }
+}

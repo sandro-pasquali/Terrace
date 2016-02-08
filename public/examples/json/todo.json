@@ -1,0 +1,16 @@
+{
+	"characters" : {
+		"stooges" : [
+			{
+				"name"		: "larry_",
+				"checked"	: true
+			},{
+				"name"		: "curly_",
+				"checked"	: false
+			},{
+				"name"		: "moe_",
+				"checked"	: true
+			}
+		]
+	}
+}

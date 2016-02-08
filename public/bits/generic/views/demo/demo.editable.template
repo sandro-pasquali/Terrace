@@ -1,0 +1,9 @@
+<script type="text/x-template">
+
+	<div 	id				= "editable"
+			class			= "bits generic"
+			data-binding	= "remote|json/dummy2.json|ducks"
+		    data-view		= "editable.template"
+	></div>
+
+</script>

@@ -1,0 +1,11 @@
+{
+  "name": "forms",
+  "version": "0.0.1",
+  "description": "Module for Terrace. Methods to create, validate, submit, and otherwise handle forms",
+  "keywords": [""],
+  "repository": "",
+  "author": "Sandro Pasquali <spasquali@gmail.com>",
+  "dependencies": {},
+  "main": "forms",
+  "engines": { "node": ">= 0.4.10" }
+}

@@ -1,0 +1,16 @@
+<script type="text/x-template">
+
+<form name="uploadForm" action="/upload" enctype="multipart/form-data" method="post" target="output">
+	<input type="file" name="upload" multiple="multiple"><br />
+
+	<input type="text" name="foobar" />
+
+	<input type="hidden" name="clientId" value="@clientId" />
+	<input type="hidden" name="transactionId" value="@transactionId" />
+
+	<input type="submit" value="Upload">
+</form>
+
+<iframe name="output" style="position:absolute; top:0px; left:0px; width:0px; height:0px; border:0px; margin:0px; padding:0px;"></iframe>
+
+</script>

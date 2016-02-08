@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Terrace</title>
+
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+
+	<style type="text/css">
+		#msgs div {
+			border-top: 1px solid silver;
+			overflow: hidden;
+		}
+		#msgs .ping {
+			color: blue;
+		}
+	</style>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../terrace.js"></script>
+
+    <script type="text/javascript">
+
+    Terrace.require("client");
+
+	Terrace.extend({
+
+		getFormFields : function(f) {
+			var flds 	= 	Terrace.argsToArray(f.getElementsByTagName("select"))
+							.concat(Terrace.argsToArray(f.getElementsByTagName("input")));
+			var x 		= flds.length;
+			var map 	= {};
+			var e;
+
+			while(x--) {
+				e = flds[x];
+				if(e.tagName.toLowerCase() === "select") {
+					map[e.name] = e.options[e.selectedIndex].value;
+				} else {
+					map[e.name] = e.value;
+				}
+			}
+
+			return map;
+		},
+
+		queryTransaction : function(tid) {
+			jQuery.get("/transaction/" + tid + "/", function(err, data, status) {
+				console.log(JSON.parse(data));
+			})
+		},
+
+		addTransactionLink : function(tid) {
+
+			var tran 	= document.getElementById("output-transactions");
+			var div		= document.createElement("div")
+
+			div.appendChild(document.createTextNode(tid));
+
+			tran.appendChild(div);
+
+			div.setAttribute("class", "transaction-link")
+			div.onclick = function() {
+				Terrace.queryTransaction(tid);
+			}
+		},
+
+		submitForm : function() {
+
+			var form 	= document.getElementById("formNode");
+			jQuery.post("/formData/", Terrace.$getFormFields(form), function(err, data, status) {
+			console.log(arguments)
+				if(!err) {
+					document.getElementById("output-call").innerHTML = data;
+					Terrace.addTransactionLink("back");
+				}
+			});
+
+			return false;
+		}
+	});
+
+    </script>
+
+</head>
+
+<body>
+
+<form id="formNode">
+
+	<select id="object" name="object">
+		<option value="birds">birds</option>
+		<option value="bees">bees</option>
+		<option value="flowers">flowers</option>
+		<option value="trees">trees</option>
+	</select>
+
+	<input type="hidden" id="methodId" name="methodId" value="@methodId" />
+	<input type="hidden" id="clientId" name="clientId" value="@clientId" />
+	<input type="hidden" id="timeout" name="timeout" value="2000" />
+</form>
+
+<button id="submitButton" onclick="Terrace.submitForm()">Submit</button>
+
+<table>
+	<thead>
+		<tr>
+			<th>Call Output</th>
+			<th>Previous Transactions</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td id="output-call"></td>
+			<td id="output-transactions"><div class="transaction-link" onclick="Terrace.queryTransaction(123)">dummy transaction (does not exist)</div></td>
+		</tr>
+	</tbody>
+</table>
+
+</body>
+</html>

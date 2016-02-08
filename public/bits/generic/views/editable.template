@@ -1,0 +1,16 @@
+<script type="text/x-template">
+<div>
+	<% Terrace.iterate(binding, function(e, i, t) { %>
+
+		<input type="text" value="{{= !e.name }}" data-binding="{{= *e.name }}" />
+
+		<% for(var x=0; x < 100; x++) { %>
+			<div>
+				hello: {{= e.name }} <span>nice to see you</span>
+			</div>
+		<% } %>
+
+	<% }); %>
+
+</div>
+</script>

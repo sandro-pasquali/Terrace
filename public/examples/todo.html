@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Terrace</title>
+
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+
+	<style type="text/css">
+		/*	Optional css for layout.
+		 */
+		body {
+			padding: 10px;
+		}
+	</style>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../terrace.js"></script>
+
+    <script type="text/javascript">
+
+    Terrace.require("client", function() {
+        this.dom.ready(function() {
+            this
+				.subscribeOnce("bind:complete", function() {
+					this.notify("Bind is complete");
+				})
+				.bits
+					.bind();
+        });
+    })
+
+    </script>
+</head>
+<body>
+
+<div 	id				= "notifier"
+		class			= "bits notifier"
+></div>
+
+<div	id 			 	= "layout-bootstrap"
+		class			= "bits layout"
+		data-params		= "
+			using 	    | modal,button
+			responsive  | true
+		"
+></div>
+
+
+<div class="container">
+<form>
+	<div 	class			= "bits list" id="first-list"
+			data-binding	= "remote|../todo.json|characters.stooges"
+	>
+		<ul class="list">
+			<script type="text/x-template" data-refresh="true">
+			{{~ binding :item:iter }}
+				<li><input id="todo1_{{= !iter }}" type="checkbox" data-binding="{{= *item.checked }}" {{? item.checked === true }} checked {{?}} />{{= item.name }}</li>
+			{{~}}
+			</script>
+		</ul>
+
+		<div class = "bits list-adder" id="first-adder">
+			<div>
+				<div>
+					<input type="hidden" data-binding="checked" />
+					<input type="text" data-binding="name" />
+					<input type="button" value="INPUT BUTTON"/>
+					<input type="submit" value="INPUT SUBMIT"/>
+					<button>ADD</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
+<!--
+<p>
+	______
+</p>
+
+	<div 	class			= "bits list" id="second-list"
+			data-binding	= "remote|../countries.json|countries.all"
+	>
+		<div class = "bits list-adder" id="second-adder">
+			<div>
+				<div>
+					<input type="checkbox" data-binding="checked" />
+					<input type="text" data-binding="name" />
+					<button>ADD</button>
+				</div>
+			</div>
+			<div class="bits generic">here</div>
+		</div>
+		<ul class="list">
+			<script type="text/x-template" data-refresh="true">
+			{{~ binding :item:iter }}
+				<li><input id="todo2_{{= !iter }}" type="checkbox" data-binding="{{= *item.checked }}" {{? item.checked === true }} checked {{?}} />{{= item.name }}</li>
+			{{~}}
+			</script>
+		</ul>
+	</div>
+-->
+</div>
+
+</body>
+</html>
